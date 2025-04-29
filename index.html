@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Beautiful Counter</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #4facfe, #00f2fe);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .counter-container {
+      background-color: white;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+      text-align: center;
+      width: 300px;
+    }
+
+    h1 {
+      font-size: 48px;
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    .value {
+      font-size: 60px;
+      color: #007bff;
+      margin: 20px 0;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    button {
+      flex: 1;
+      margin: 0 5px;
+      padding: 10px;
+      font-size: 18px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+    }
+
+    .increment {
+      background-color: #28a745;
+      color: white;
+    }
+
+    .decrement {
+      background-color: #dc3545;
+      color: white;
+    }
+
+    .reset {
+      background-color: #ffc107;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <div class="counter-container">
+    <h1>Counter</h1>
+    <div class="value" id="counterValue">0</div>
+    <div class="buttons">
+      <button class="decrement" onclick="changeCounter(-1)">−</button>
+      <button class="reset" onclick="resetCounter()">Reset</button>
+      <button class="increment" onclick="changeCounter(1)">+</button>
+    </div>
+  </div>
+
+  <script>
+    let count = 0;
+
+    function updateDisplay() {
+      document.getElementById('counterValue').textContent = count;
+    }
+
+    function changeCounter(amount) {
+      count += amount;
+      updateDisplay();
+    }
+
+    function resetCounter() {
+      count = 0;
+      updateDisplay();
+    }
+  </script>
+</body>
+</html>
+
